@@ -6,11 +6,14 @@ public abstract class Unit {
     private int xp; //unit's experience
     private int gold; //unit's gold
 
-    public Unit(String name, int health, int strength, int dexterity) {
+    public Unit(String name, int health, int strength, int dexterity, int xp, int gold) {
         this.name = name;
         this.health = health;
         this.strength = strength;
         this.dexterity = dexterity;
+        this.xp = xp;
+        this.gold = gold;
+
     }
 
     public String getName() {
@@ -26,8 +29,8 @@ public abstract class Unit {
     }
 
     public void setHealth(int health) {
-        if(health>100) this.health=100;
-        else if (health<0) this.health=0;
+        if (health > 100) this.health = 100;
+        else if (health < 0) this.health = 0;
         else this.health = health;
     }
 
@@ -36,7 +39,7 @@ public abstract class Unit {
     }
 
     public void setStrength(int strength) {
-        if(strength<0) this.strength=0;
+        if (strength < 0) this.strength = 0;
         else this.strength = strength;
     }
 
@@ -45,7 +48,7 @@ public abstract class Unit {
     }
 
     public void setDexterity(int dexterity) {
-        if(dexterity<0) this.dexterity=0;
+        if (dexterity < 0) this.dexterity = 0;
         this.dexterity = dexterity;
     }
 
@@ -54,7 +57,7 @@ public abstract class Unit {
     }
 
     public void setXp(int xp) {
-        if(xp<0) this.xp = 0;
+        if (xp < 0) this.xp = 0;
         this.xp = xp;
     }
 
@@ -63,12 +66,16 @@ public abstract class Unit {
     }
 
     public void setGold(int gold) {
-        if(gold<0) this.gold = 0;
+        if (gold < 0) this.gold = 0;
         this.gold = gold;
     }
 
     public int attack() { //attack method
-        if(dexterity*3>(int)(Math.random() * 100)) return strength;
+        if (dexterity * 3 > (int) (Math.random() * 100)) return strength;
         else return 0;
     }
+    public String toString() {
+        return ("player: "+name+" with "+health+" health points");
+    }
+
 }
