@@ -1,5 +1,5 @@
 public class DrugDealer {
-    public static void sellHeal() {
-
+    public static void sellHeal(){
+       //
     }
 }

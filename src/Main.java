@@ -1,9 +1,7 @@
-import com.sun.source.tree.NewArrayTree;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+import java.util.Scanner;
 
 
 public class Main {
@@ -40,7 +38,19 @@ public class Main {
 
         switch (str) {
             case "1":
-                System.out.println("УЧЕТ! Приходите завтра");
+                System.out.println("Хотите восстановить здоровье на 50 единиц за 10 монет(y/n)?");
+                Scanner scanner = new Scanner(System.in);
+                String choice = scanner.nextLine();
+                switch (choice) {
+                    case "y": {
+                        if (player.getGold() >= 10) {
+                            player.setGold(player.getGold() - 10);
+                            player.setHealth(player.getHealth() + 50);
+                            System.out.println("У вас теперь " + player.getHealth() + " единиц здоровья");
+                        } else System.out.println("Недостаточно золота");
+                    }
+                    break;
+                }
                 printMenu();
                 makeChoice(br.readLine());
                 break;
@@ -109,7 +119,7 @@ public class Main {
         else {
             System.exit(0);
         }
-//        battleField.makeHit(player,)
+
 
     }
 
