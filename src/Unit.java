@@ -70,12 +70,12 @@ public abstract class Unit {
         this.gold = gold;
     }
 
-    public int attack() { //attack method
+    public int attack() {
         if (dexterity * 3 > (int) (Math.random() * 100)) return strength;
         else return 0;
     }
     public String toString() {
-        return ("player: "+name+" with "+health+" health points");
+        return (name+" with "+health+" health points");
     }
 
 }
